@@ -3,18 +3,27 @@ const Todo = require('../models/Todo.model');
 const createTodo = (req, res) => {
     Todo.create({ description: req.body.description, dueDate: req.body.dueDate })
         .then((data) => {
-            console.log("New Todo created.");
-            res.status(200).json(data)
+            if(data.description.toLowerCase().indexOf("coffee") != -1){
+                res.status(418).json(data)
+            }
+            else {
+                res.status(201).json(data)
+            }
         })
         .catch(err => {
             console.log(err);
-            res.status(500).json(err)
+            if(err.name === 'ValidationError'){
+                res.status(422).json(err)
+            }
+            else {
+                res.status(500).json(err)
+            }
         })
 }
 
 const readTodos = (req, res) => {
     Todo.find()
-        .then((data) => res.json(data))
+        .then((data) => res.status(200).json(data))
         .catch((err) => {
             console.log(err); 
             res.status(500).json(err)
