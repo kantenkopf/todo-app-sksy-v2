@@ -1,11 +1,21 @@
-const express = require('express')
-const app = express();
-const PORT = 3000;
+const express = require('express');
 
-app.get('/', (req, res) => {
-    res.send('Hello World')
-})
+require('dotenv').config();
+require('./helpers/mongodb.helper');
+
+const PORT = process.env.PORT;
+const app = express();
+
+app.use(express.urlencoded({extended: true}))
+app.use(express.json());
+
+// static content
+app.use('/', express.static(__dirname + "/views/"));
+
+// api route
+app.use('/api', require('./routes/api'));
 
 app.listen(PORT, () => {
-    console.log(`Server listening at http://localhost:${PORT}`);
+    console.log(`\nServer listening at: http://localhost:${PORT}\nAPI access via: http://localhost:${PORT}/api\n`);
 })
+
