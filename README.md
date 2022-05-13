@@ -24,7 +24,7 @@ IMPORTANT: Changing the port in `.env` requires a change of the proxy in `vue.co
 
 in `client/vs.config.js`
 
-```json
+```
 configureWebpack: {
   devServer: {
     proxy: {
