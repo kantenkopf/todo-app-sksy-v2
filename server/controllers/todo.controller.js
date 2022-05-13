@@ -3,11 +3,7 @@ const Todo = require("../models/Todo.model");
 const createTodo = (req, res) => {
   Todo.create({ description: req.body.description, dueDate: req.body.dueDate })
     .then((data) => {
-      if (data.description.toLowerCase().indexOf("coffee") != -1) {
-        res.status(418).json(data);
-      } else {
         res.status(201).json(data);
-      }
     })
     .catch((err) => {
       console.log(err);
