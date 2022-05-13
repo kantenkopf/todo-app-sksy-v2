@@ -1,7 +1,6 @@
 # TODO-APP-SKSY-V2
 
 ## How to use from project root directory (recommended)
-_____
 
 This is recommended. Every component can be set up and launched from the projects root folder without the need to switch directories.
 
@@ -57,9 +56,6 @@ npm run server
 Open http://localhost:3000 inside your browser or http://localhost:PORT, if you changed the value of `PORT` inside of `.env`.
 
 ## Dev options inside root directory
-_____
-
-
 
 ### Start client in dev mode (Compiles and hot-reloads for development)
 ```
@@ -76,7 +72,6 @@ npm run build
 ```
 
 ## Individually (not recommended)
-_____
 
 To set up client and server individually, use the following commands from the root directory of this project.
 
@@ -113,7 +108,7 @@ Open http://localhost:3000 inside your browser or http://localhost:PORT, if you 
 
 
 ## Dev options inside individual directories
-_____
+
 ### Client directory
 ```
 npm run serve
