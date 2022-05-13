@@ -1,18 +1,24 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div class="home container col-lg-10 col-xl-8 col-xxl-6 justify-content-center">
+    <TodoTable :todos="todos" />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import TodoTable from "@/components/TodoTable.vue";
 
 export default {
   name: "HomeView",
-  components: {
-    HelloWorld,
+  components: { 
+    TodoTable 
   },
-};
+  data() {
+    return {};
+  },
+  computed: {
+    todos() {
+      return this.$store.getters.getTodos;
+    }
+  }
+}
 </script>
