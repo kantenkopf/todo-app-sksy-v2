@@ -15,8 +15,11 @@
       </tbody>
     </table>
     <div v-if="todos.length == 0" class="container text-center">
-        <div class="row mb-5">
-          <p  class="text-center">No TODOs here, create one first. </p>
+        <div class="row mt-5">
+          <p>
+            <i class="bi bi-exclamation-circle"></i>
+            No TODOs here, create one first.
+          </p>
         </div>
     </div>
   </div>
