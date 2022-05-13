@@ -14,6 +14,11 @@
         <TodoTableRow v-for="todo in todos" :key="JSON.stringify(todo)" :todo="todo" />
       </tbody>
     </table>
+    <div v-if="todos.length == 0" class="container text-center">
+        <div class="row mb-5">
+          <p  class="text-center">No TODOs here, create one first. </p>
+        </div>
+    </div>
   </div>
 </template>
 
