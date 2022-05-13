@@ -22,7 +22,7 @@ PORT = <PORT>
 ```
 IMPORTANT: Changing the port in `.env` requires a change of the proxy in `vue.config.js` in order for client-devmode to work correctly.
 
-in `client/vs.config.js`
+inside `client/vs.config.js`
 
 ```
 configureWebpack: {
