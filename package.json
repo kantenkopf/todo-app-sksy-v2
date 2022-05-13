@@ -10,5 +10,8 @@
     "devDependencies": {
         "concurrently": "^7.1.0",
         "nodemon": "^2.0.16"
+    },
+    "dependencies": {
+        "@vue/cli-service": "^5.0.4"
     }
 }
