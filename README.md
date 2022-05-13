@@ -14,7 +14,7 @@ After running this script, copy the contents from `.env.example` into the newly 
 
 Change the `PORT` to your desired port (default value is 3000):
 
-in `.env`
+inside `.env`
 
 ```
 PORT = <PORT>
