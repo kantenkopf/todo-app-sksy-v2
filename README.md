@@ -75,9 +75,9 @@ npm run build
 
 To set up client and server individually, use the following commands from the root directory of this project.
 
-### 1. Install depencies and create .env
+### 1. Install dependencies and create .env
 
-### Root depencies:
+### Root dependencies:
 ```
 npm install
 ```
