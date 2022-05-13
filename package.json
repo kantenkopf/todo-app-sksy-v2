@@ -1,8 +1,10 @@
 {
     "scripts": {
+        "installAll": "npm install && npm install --prefix client && npm install --prefix server && touch .env && cd server && touch .env",
         "server": "nodemon server/server.js",
         "client": "npm run serve --prefix client",
-        "dev": "concurrently \"npm run server\" \"npm run client\""
+        "dev": "concurrently \"npm run server\" \"npm run client\"",
+        "build": "npm run build --prefix client"
     },
     "devDependencies": {
         "concurrently": "^7.1.0",
