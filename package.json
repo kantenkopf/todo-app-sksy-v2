@@ -4,6 +4,7 @@
         "server": "nodemon server/server.js",
         "client": "npm run serve --prefix client",
         "dev": "concurrently \"npm run server\" \"npm run client\"",
+        "build": "npm install && npm install --prefix client && npm install --prefix server && npm run build --prefix client",
         "start": "node server/server.js"
     },
     "devDependencies": {
