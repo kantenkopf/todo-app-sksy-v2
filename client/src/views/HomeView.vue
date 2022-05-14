@@ -1,5 +1,5 @@
 <template>
-  <div class="home container col-lg-10 col-xl-8 col-xxl-6 justify-content-center">
+  <div class="home container col-lg-8 col-xl-7 col-xxl-6 justify-content-center">
     <TodoTable :todos="todos" />
   </div>
 </template>
