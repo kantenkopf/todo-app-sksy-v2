@@ -47,8 +47,9 @@ Upon the first server start a new collection will be automatically created in th
 
 
 ### 2. Start server:
+
 ```
-npm run server
+npm run start
 ```
 
 ### 3. Navigate to Website
@@ -57,16 +58,19 @@ Open http://localhost:3000 inside your browser or http://localhost:PORT, if you 
 
 ## Dev options inside root directory
 
+### Start server in dev mode
+```
+npm run server
+```
 ### Start client in dev mode (Compiles and hot-reloads for development)
 ```
 npm run client
 ```
-
-### Start client (dev mode) & server simultaneously
+### Start client (dev mode) & server (dev mode) simultaneously
 ```
 npm run dev
 ```
-### Compiles and minifies client for production
+### Installs all dependencies & compiles and minifies client for production
 ```
 npm run build
 ```
@@ -99,7 +103,7 @@ If you want to use the scripts of the project root, do the same as above inside 
 
 Navigate to the server folder, then run:
 ```
-npm run client
+npm run server
 ```
 
 ### 3. Navigate to Website
