@@ -23,6 +23,9 @@ export default createStore({
     },
     deleteTodo(state, payload){
       state.todos.splice(state.todos.findIndex((todo) => todo._id === payload), 1);
+    },
+    flushTodos(state){
+      state.todos = [];
     }
   },
   actions: {

@@ -1,7 +1,11 @@
 <template>
   <div class="d-flex flex-column min-vh-100">
     <NavbarComponent />
-    <router-view />
+        <router-view v-slot="{ Component }">
+        <transition>
+          <component :is="Component" />
+        </transition>
+      </router-view>
     <FooterComponent />
   </div>
 </template>
@@ -15,11 +19,21 @@ export default {
     NavbarComponent,
     FooterComponent
   },
-  beforeMount() {
+  created() {
+    if(this.$store.getters.getTodos.length !== 0){
+      this.$store.commit("flushTodos");
+    }
     this.$store.dispatch("getTodos");
   },
 }
 </script>
 
 <style>
+  .v-enter-from {
+    opacity: 0;
+
+  }
+  .v-enter-active {
+    transition: opacity .8s ease;
+  }
 </style>

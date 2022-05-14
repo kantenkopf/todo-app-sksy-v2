@@ -1,6 +1,6 @@
 <template>
   <div class="table-responsive">
-    <table class="table table-hover table-striped text-center">
+    <table class="table table-hover table-striped text-center table-borderless">
       <thead>
         <tr>
           <th scope="col" class="text-start">TODO</th>
@@ -10,11 +10,11 @@
           <th scope="col">Delete</th>
         </tr>
       </thead>
-      <tbody class="align-middle">
+      <TransitionGroup tag="tbody" name="table-row" class="align-middle">
         <TodoTableRow v-for="todo in todos" :key="JSON.stringify(todo)" :todo="todo" />
-      </tbody>
+      </TransitionGroup>
     </table>
-    <div v-if="todos.length == 0" class="container text-center">
+    <div v-show="todos.length === 0" class="container text-center">
         <div class="row mt-5">
           <p>
             <i class="bi bi-exclamation-circle"></i>
@@ -27,6 +27,7 @@
 
 <script>
 import TodoTableRow from "./TodoTableRow.vue";
+
 export default {
   name: "TodoTable",
   components: {
@@ -36,5 +37,18 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.table-responsive {
+  overflow-y: hidden;
+}
+
+.table-row-enter-active,
+.table-row-leave-active {
+  transition: all 0.4s ease;
+}
+.table-row-enter-from,
+.table-row-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
 </style>
