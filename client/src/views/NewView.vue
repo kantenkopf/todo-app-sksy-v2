@@ -9,7 +9,7 @@
 
       <BaseFormInput :labelFor="'task-description'" :helpId="'description-help'">
         <template #label>Task Description</template>
-        <input class="form-control" type="date" name="due-date" id="due-date" v-model="dueDate">
+        <input class="form-control" type="date" name="due-date" id="due-date" v-model="date">
         <template #help>What do you need to get done?</template>
       </BaseFormInput>
     </BaseForm>
@@ -26,7 +26,8 @@ export default {
     data() {
       return {
         description: "",
-        dueDate: null,
+        dueDate: new Date().toISOString().split('T')[0]+"T00:00:00.000Z",
+        date: new Date().toISOString().split('T')[0],
       }
     },
     methods: {
@@ -34,6 +35,11 @@ export default {
         this.$store.dispatch('addTodo', { description: this.description, dueDate: this.dueDate  });
         this.$router.push('/');
       }
+    },
+    watch: {
+      date() {
+        this.dueDate = this.date + "T00:00:00.000Z";
+      },
     }
 }
 </script>

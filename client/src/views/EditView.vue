@@ -10,7 +10,7 @@
       <BaseFormInput :labelFor="'due-date'">
         <template #label>New Due Date</template>
         <input class="form-control" type="date" name="due-date" id="due-date" v-model="date">
-        <template #help>Current Due Date is: </template>
+        <template #help>Current Due Date is: {{ formattedDate }}</template>
       </BaseFormInput>
 
       <BaseFormInput :labelFor="'completion'">
@@ -55,7 +55,6 @@ export default {
     return {
       todo: null,
       date: "",
-      isoDate: "",
     }
   },
   methods: {
@@ -66,7 +65,22 @@ export default {
   },
   watch: {
     date() {
-      this.todo.dueDate = this.date + "T00:00:00Z"
+      this.todo.dueDate = this.date + "T00:00:00.000Z"
+    }
+  },
+  computed: {
+    formattedDate() {
+      let date = this.todo.dueDate.split('T')[0].split('-');
+      let dateStringLocale = "";
+      for(let i = date.length-1; i >= 0; i-- ){
+        if(i != 0){
+          dateStringLocale += date[i] + '.';
+        } 
+        else {
+          dateStringLocale += date[i];
+        }
+      }
+      return dateStringLocale;
     }
   }
 }

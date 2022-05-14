@@ -8,6 +8,11 @@ const todoSchema = new mongoose.Schema({
   dueDate: {
     type: Date,
     required: true,
+    validate: {
+      validator: (value) => {
+        return new Date(value) >= new Date(`${new Date().toISOString().split('T')[0]}T00:00:00.000Z`);
+      }
+    }
   },
   completion: {
     type: Number,
