@@ -74,6 +74,7 @@ npm run dev
 ```
 npm run build
 ```
+NOTE: to directly run locally, `.env` files need to be created manually. 
 
 ## Individually (not recommended)
 
