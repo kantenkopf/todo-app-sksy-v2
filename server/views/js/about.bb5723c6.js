@@ -1,2 +1,2 @@
 "use strict";(self["webpackChunkclient"]=self["webpackChunkclient"]||[]).push([[443],{239:function(n,e,r){r.r(e),r.d(e,{default:function(){return b}});var t=r(3396);const c={class:"container text-center"},i=(0,t._)("div",{class:"row mb-5"},[(0,t._)("p",null,"Created by:"),(0,t._)("p",null,"Maurice Fabrice Riebling & Oliver Morthen Fuhrmann")],-1),u=[i];function a(n,e){return(0,t.wg)(),(0,t.iD)("div",c,u)}var l=r(89);const s={},o=(0,l.Z)(s,[["render",a]]);var b=o}}]);
-//# sourceMappingURL=about.b4b6d368.js.map
+//# sourceMappingURL=about.bb5723c6.js.map

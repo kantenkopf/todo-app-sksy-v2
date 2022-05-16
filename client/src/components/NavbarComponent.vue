@@ -1,3 +1,17 @@
+<style>
+
+  .navbar-brand:hover {
+    text-decoration: underline;
+    transition: linear 0.2s;
+  }
+
+  .navbar-brand:active {
+    transform: translateY(3px);
+    transition: linear 0.2s;
+  }
+
+</style>
+
 <template>
   <nav class="navbar navbar-dark bg-dark mb-5">
     <div class="container">
@@ -13,7 +27,7 @@
 
 <script>
   export default {
-  
+
 };
 </script>
 
