@@ -1,9 +1,9 @@
 <template>
   <tr>
-    <td class="text-start">
+    <td class="text-start" :class="{ 'text-decoration-line-through': todo.completed }">
       {{ todo.description }}
     </td>
-    <td>
+    <td :class="{ 'text-decoration-line-through': todo.completed }">
       {{ dueDate }}
     </td>
     <td>

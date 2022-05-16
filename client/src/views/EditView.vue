@@ -1,6 +1,6 @@
 <template>
   <div>
-    <BaseForm @submit.prevent @save="updateTodo">
+    <BaseForm @submit.prevent :isValid="true" @save="updateTodo">
       <BaseFormInput :labelFor="'task-description'">
         <template #label>Task Description</template>
         <input class="form-control" type="text" name="task-description" id="task-description" maxlength="160" v-model="todo.description">
@@ -15,20 +15,10 @@
 
       <BaseFormInput :labelFor="'completion'">
         <template #label>Change Completion (%)</template>
-        <select class="form-select" name="completion" aria-label="Change completion (%) of TODO" v-model="todo.completion">
-          <option value="0">0</option>
-          <option value="10">10</option>
-          <option value="20">20</option>
-          <option value="30">30</option>
-          <option value="40">40</option>
-          <option value="50">50</option>
-          <option value="60">60</option>
-          <option value="70">70</option>
-          <option value="80">80</option>
-          <option value="90">90</option>
-          <option value="100">100</option>
-        </select>
+        <input type="range" class="form-range" min="0" max="100" id="customRange2" v-model="todo.completion">
+        <template #help>Current Completion is: {{ todo.completion }}</template>
       </BaseFormInput>
+      
       <div class="mb-5 text-center">
           <input class="form-check-input mx-1" type="checkbox" value="" id="todoCompletedCheck" v-model="todo.completed">
           <label class="form-check-label mx-1" for="todoCompletedCheck">
@@ -55,17 +45,28 @@ export default {
     return {
       todo: null,
       date: "",
+      previousCompletion: 0,
     }
   },
   methods: {
     updateTodo() {
       this.$store.dispatch('updateTodo', this.todo);
       this.$router.push('/');
-    }
+    },
+
   },
   watch: {
     date() {
       this.todo.dueDate = this.date + "T00:00:00.000Z"
+    },
+    'todo.completed'(){
+      if(this.todo.completed){
+        this.previousCompletion = this.todo.completion;
+        this.todo.completion = 100;
+      }
+      else{
+        this.todo.completion = this.previousCompletion;
+      }
     }
   },
   computed: {

@@ -7,7 +7,7 @@
         <template #help>What do you need to get done?</template>
       </BaseFormInput>
 
-      <BaseFormInput :labelFor="'task-description'" :helpId="'description-help'">
+      <BaseFormInput :labelFor="'due-date'" :helpId="'date-help'">
         <template #label>Task Description</template>
         <input class="form-control" :class="{ 'is-invalid': dueDate < `${new Date().toISOString().split('T')[0]}T00:00:00.000Z`}" type="date" name="due-date" id="due-date" v-model="date">
         <div class="invalid-feedback">
