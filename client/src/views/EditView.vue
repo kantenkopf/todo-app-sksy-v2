@@ -38,8 +38,9 @@ export default {
   components: { BaseForm, BaseFormInput },
   props: ["_id"],
   beforeMount() {
-    this.todo = this.$store.getters.getTodoByID(this._id);
+    this.todo = {...this.$store.getters.getTodoByID(this._id)};
     this.date = this.todo.dueDate.split('T')[0];
+    this.previousCompletion = this.todo.completion;
   },
   data() {
     return {
@@ -59,12 +60,12 @@ export default {
     date() {
       this.todo.dueDate = this.date + "T00:00:00.000Z"
     },
-    'todo.completed'(){
+    'todo.completed'(oldValue, newValue){
       if(this.todo.completed){
         this.previousCompletion = this.todo.completion;
         this.todo.completion = 100;
-      }
-      else{
+      } 
+      else if (newValue !== null) {
         this.todo.completion = this.previousCompletion;
       }
     }
